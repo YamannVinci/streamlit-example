@@ -18,18 +18,18 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
+     total_points1 = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
     Point = namedtuple('Point', 'x y')
     data = []
 
-    points_per_turn = total_points / num_turns
+    points_per_turn = total_points/ total_points1/ num_turns
 
-    for curr_point_num in range(total_points):
+    for curr_point_num in range(total_points/ total_points1):
         curr_turn, i = divmod(curr_point_num, points_per_turn)
         angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
+        radius = curr_point_num / total_points / total_points1
         x = radius * math.cos(angle)
         y = radius * math.sin(angle)
         data.append(Point(x, y))
